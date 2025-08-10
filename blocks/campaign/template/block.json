@@ -1,0 +1,34 @@
+{
+	"$schema": "https://app.blockstudio.dev/schema",
+	"name": "wp2-lead/campaign",
+	"title": "WP2 Lead Campaign",
+	"category": "widgets",
+	"icon": "megaphone",
+	"description": "Select and display a WP2 Lead campaign.",
+	"blockstudio": {
+		"attributes": [
+			{
+				"id": "campaignId",
+				"type": "select",
+				"description": "Select a campaign to display.",
+				"returnFormat": "value",
+				"allowNull": "Select Campaign",
+				"required": true,
+				"populate": {
+					"type": "query",
+					"query": "posts",
+					"arguments": {
+						"post_type": "wp2_lead_campaign",
+						"number": -1
+					},
+					"returnFormat": {
+						"label": "post_title",
+						"value": "ID"
+					}
+				},
+				"label": "Select Campaign",
+				"postType": "wp2_lead_campaign"
+			}
+		]
+	}
+}

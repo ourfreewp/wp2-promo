@@ -1,0 +1,88 @@
+/* File: assets/css/style.css */
+:root {
+  --wp--preset--color--primary: #002b45;
+  --wp--preset--color--light: #ffffff;
+  --wp--preset--color--content: #333333;
+  --wp--preset--color--accent-1: #ffc72c;
+  --wp--preset--color--accent-2: #00a1ff;
+  --wp--preset--color--success: #28a745;
+  --wp--preset--color--danger: #dc3545;
+  --wp--preset--color--info: #17a2b8;
+  --wp--preset--font-family--chivo: "Chivo", sans-serif;
+  --wp--preset--font-family--inter: "Inter", sans-serif;
+  --wp--preset--shadow--crisp: 4px 4px 0px rgba(0, 0, 0, 1);
+  --wp--preset--shadow--elevated: 10px 10px 0px rgba(0, 0, 0, 1);
+}
+
+#otw-lead-popover.otw-lead-container {
+  position: fixed;
+  background-color: var(--wp--preset--color--light);
+  border: 2px solid var(--wp--preset--color--primary);
+  box-shadow: var(--wp--preset--shadow--crisp);
+  transition: all 0.25s ease-in-out;
+  z-index: 1050;
+  box-sizing: border-box;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 600px;
+  width: 90%;
+  padding: 0;
+}
+
+#otw-lead-popover.otw-lead-container:hover {
+  transform: translate(-50%, calc(-50% - 4px));
+  box-shadow: var(--wp--preset--shadow--elevated);
+}
+
+#otw-lead-popover .otw-lead-close-btn {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--wp--preset--color--light);
+  border: 2px solid var(--wp--preset--color--primary);
+  border-radius: 50%;
+  color: var(--wp--preset--color--primary);
+}
+
+#otw-lead-popover .otw-lead-close-btn .otw-lead-close-icon {
+  position: absolute;
+  top: 0;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  vertical-align: middle;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#otw-lead-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1040;
+  display: none;
+}
+
+#otw-lead-backdrop.is-visible {
+  display: block;
+}
+
+#otw-lead-popover.is-visible {
+  display: block;
+}
+
+#otw-lead-popover img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

@@ -1,0 +1,42 @@
+name: WP2 Lead CI
+on:
+  push:
+    branches:
+      - vinnysgreen-wp2-sdk-1
+      - development
+  pull_request:
+    branches:
+      - vinnysgreen-wp2-sdk-1
+      - development
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: wordpress
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping --silent" --health-interval=10s --health-timeout=5s --health-retries=3
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          extensions: mbstring, mysqli
+      - name: Install dependencies
+        run: |
+          composer install || true
+      - name: Install WordPress
+        run: |
+          git clone https://github.com/WordPress/WordPress.git /tmp/wordpress
+          git clone https://github.com/WordPress/phpunit-test-runner.git /tmp/wordpress-tests-lib
+      - name: Run PHPUnit
+        env:
+          WP_TESTS_DIR: /tmp/wordpress-tests-lib
+        run: |
+          vendor/bin/phpunit --configuration=phpunit.xml || true

@@ -1,0 +1,24 @@
+/* --- Help & Tools Section --- */
+.wp2-help-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--wp--preset--spacing--60); }
+.wp2-help-card {
+    background: var(--wp--preset--color--white); border: var(--wp--custom--border--width-thin) solid var(--wp--preset--color--black); border-radius: var(--wp--custom--border--radius-default);
+    padding: var(--wp--preset--spacing--60); text-align: center; box-shadow: var(--wp--preset--shadow--crisp-edge);
+}
+.wp2-help-card .icon { font-size: 2.5rem; color: var(--wp--preset--color--accent-purple); margin-bottom: var(--wp--preset--spacing--40); }
+.wp2-help-card h3 { font-family: var(--wp--preset--font-family--heading); font-size: var(--wp--preset--font-size--large); margin-bottom: var(--wp--preset--spacing--20); }
+.wp2-help-card p { color: var(--wp--preset--color--text-subtle); margin-bottom: var(--wp--preset--spacing--60); }
+
+.wp2-status-list .item { display: flex; justify-content: space-between; align-items: center; padding: var(--wp--preset--spacing--40); border-bottom: var(--wp--custom--border--width-thin) solid var(--wp--preset--color--black); }
+.wp2-status-list .item:last-child { border-bottom: none; }
+.wp2-status-badge-ok { background-color: #dcfce7; color: #166534; }
+.wp2-status-badge-error { background-color: #fee2e2; color: #991b1b; }
+.wp2-status-list .info-icon { color: var(--wp--preset--color--text-subtle); cursor: help; }
+
+/* --- Responsive --- */
+@media (max-width: 992px) {
+    .wp2-dashboard-main-grid, .wp2-settings-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+    .wp2-lead-dashboard-app { padding: 0 var(--wp--preset--spacing--40); margin: var(--wp--preset--spacing--60) auto; }
+    .wp2-admin-header, .wp2-page-header { flex-direction: column; align-items: flex-start; gap: var(--wp--preset--spacing--40); }
+}

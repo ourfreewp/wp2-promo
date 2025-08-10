@@ -1,0 +1,27 @@
+{
+	"name": "vinny-green/wp2-lead",
+	"description": "Lightweight, high-conversion lead-capture campaigns for WordPress.",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "Vinny's Green",
+			"email": "your_email@example.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"WP2Lead\\": "src/"
+		}
+	},
+	"require": {
+		"php": ">=7.4"
+	},
+	"config": {
+		"optimize-autoloader": true,
+		"allow-plugins": {
+			"composer/installers": true
+		}
+	},
+	"require-dev": {}
+}

@@ -1,0 +1,116 @@
+{
+  "$schema": "https://app.blockstudio.dev/schema",
+  "name": "otw-lead/placement",
+  "title": "Placement (OTW Promo)",
+  "category": "widgets",
+  "icon": "megaphone",
+  "description": "Displays a popover with a call-to-action creative on the frontend.",
+  "blockstudio": {
+    "attributes": [
+      {
+        "id": "content",
+        "type": "attributes",
+        "label": "Content",
+        "attributes": [
+          {
+            "id": "headline",
+            "type": "text",
+            "label": "Headline"
+          },
+          {
+            "id": "ctaText",
+            "type": "text",
+            "label": "CTA Text"
+          },
+          {
+            "id": "ctaUrl",
+            "type": "url",
+            "label": "CTA URL"
+          },
+          {
+            "id": "media",
+            "type": "files",
+            "label": "Media (Desktop)",
+            "returnFormat": "url"
+          },
+          {
+            "id": "mediaSmall",
+            "type": "files",
+            "label": "Media (Mobile)",
+            "returnFormat": "url"
+          }
+        ]
+      },
+      {
+        "id": "trigger",
+        "type": "attributes",
+        "label": "Trigger",
+        "attributes": [
+          {
+            "id": "type",
+            "type": "select",
+            "label": "Trigger Type",
+            "options": [
+              {
+                "value": "delay",
+                "label": "Delay"
+              },
+              {
+                "value": "manual",
+                "label": "Manual"
+              }
+            ]
+          },
+          {
+            "id": "delayInSeconds",
+            "type": "number",
+            "label": "Delay (seconds)",
+            "conditions": [
+              [
+                {
+                  "id": "type",
+                  "operator": "==",
+                  "value": "delay"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": "targeting",
+        "type": "attributes",
+        "label": "Targeting",
+        "attributes": [
+          {
+            "id": "audience",
+            "type": "select",
+            "label": "Audience",
+            "options": [
+              {
+                "value": "new",
+                "label": "New Visitors"
+              },
+              {
+                "value": "all",
+                "label": "All Visitors"
+              }
+            ]
+          },
+          {
+            "id": "frequencyCap",
+            "type": "text",
+            "label": "Frequency Cap (in seconds)",
+            "help": "Set to 'session' for one-time-per-session, or '0' for no cap."
+          },
+          {
+            "id": "campaignId",
+            "type": "text",
+            "label": "Campaign ID",
+            "help": "A unique ID to track this specific creative."
+          }
+        ]
+      }
+    ]
+  }
+}
